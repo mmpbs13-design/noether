@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Emmy Noether</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='black'/><text y='78' x='10' font-size='75' font-family='Georgia' fill='%2300b8b8'>M</text></svg>">
+    <style>
+      body {
+        font-family: Georgia, serif;
+        background-color: #1a1a2e;
+        color: #dfd3be;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 48px;
+        color: #e8dcc8;
+      }
+      header {
+        background-color: #5c4a6e;
+        color: #ffffff;
+        padding: 60px 40px;
+        text-align: center;
+      }
+      header p {
+        font-size: 18px;
+        opacity: 0.8;
+      }
+      .portrait-circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #e8dcc8;
+        margin: 20px auto;
+        display: block;
+      }
+      .split {
+        display: flex;
+        min-height: 80vh;
+      }
+      .left {
+        background-color: #2c2c2c;
+        color: #e8dcc8;
+        width: 50%;
+        padding: 40px;
+      }
+      .right {
+        background-color: #e8dcc8;
+        color: #2c2c2c;
+        width: 50%;
+        padding: 40px;
+      }
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      h3 {
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 6px;
+        opacity: 0.7;
+      }
+      .card {
+        background-color: #ffffff;
+        border: 1px solid #2c2c2c;
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin-bottom: 12px;
+        cursor: pointer;
+      }
+      .card:hover {
+        background-color: #f0e6d3;
+      }
+      .card h3 {
+        opacity: 1;
+        margin: 0;
+        font-size: 15px;
+      }
+      .card-content {
+        display: none;
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #2c2c2c;
+      }
+      .quote-section {
+        background-color: #0a1628;
+        color: #e8dcc8;
+        text-align: center;
+        padding: 60px 40px;
+        opacity: 0;
+        transition: opacity 1.5s ease;
+      }
+      .quote-section.visible {
+        opacity: 1;
+      }
+      .quote-text {
+        font-size: 22px;
+        font-style: italic;
+        max-width: 700px;
+        margin: 0 auto 16px;
+        line-height: 1.7;
+      }
+      .quote-author {
+        font-size: 14px;
+        opacity: 0.7;
+      }
+      footer {
+        background-color: #5c4a6e;
+        color: #e8dcc8;
+        text-align: center;
+        padding: 40px;
+        font-size: 14px;
+        line-height: 2;
+      }
+      .card-img {
+        width: 100%;
+        max-width: 300px;
+        display: block;
+        margin: 12px auto 0;
+        border-radius: 8px;
+      }
+      .dark-card {
+        background-color: #3a3a3a;
+        border: 1px solid #555;
+      }
+      .dark-card:hover {
+        background-color: #444;
+      }
+      .light-text {
+        color: #e8dcc8;
+      }
+
+      .split {
+        border-top: 6px solid #ffffff;
+        border-bottom: 6px solid #ffffff;
+      }
+
+      .quote-section {
+        border-bottom: 6px solid #ffffff;
+      }
+
+      header {
+        border-bottom: 6px solid #ffffff;
+      }
+
+      .navbar {
+        background-color: #000000;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-bottom: 6px solid #ffffff;
+      }
+
+      .nav-logo {
+        font-size: 28px;
+        font-weight: bold;
+        color: #00b8b8;
+        font-family: Georgia, serif;
+        letter-spacing: 2px;
+      }
+
+      .nav-title {
+        font-size: 14px;
+        color: #ffffff;
+        opacity: 0.7;
+        font-family: Georgia, serif;
+        letter-spacing: 1px;
+      }
+
+      .nav-divider {
+        color: #ffffff;
+        opacity: 0.3;
+        font-size: 20px;
+      }
+
+      .nav-page {
+        font-size: 14px;
+        color: #00b8b8;
+        font-family: Georgia, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <span class="nav-logo">M</span>
+      <span class="nav-divider">|</span>
+      <span class="nav-title">M&M Sauvageot · Making the Neglected Seen</span>
+      <span class="nav-divider">|</span>
+      <span class="nav-page">Noether's Legacy</span>
+    </nav>
+
+    <header>
+      <h1>Emmy Noether</h1>
+      <img src="emmy.jpg" alt="Emmy Noether" class="portrait-circle">
+      <p>1882, 1935 · The mathematician chemistry forgot</p>
+    </header>
+
+    <div class="split">
+      <div class="left">
+        <h2>The Woman</h2>
+        <div class="card dark-card" onclick="toggle('l1')">
+          <h3>1882, Born in Erlangen, Germany</h3>
+          <div id="l1" class="card-content light-text">Emmy Noether was born on March 23, 1882 in Erlangen, Bavaria. Her father Max Noether was a very respected mathematician. From an early age Emmy also seemed to be extremely talented, solving problems that others couldn't even comprehend. Despite this, she wasn't allowed to enrol in university just because she was a woman. She was only allowed to audit classes with each professor's personal permission. She seated in lectures she had no official right to attend. It was an early sign of the oppression she would face her entire life just for being a woman.
+            <img src="erlangen.jpg" alt="Erlangen Germany" class="card-img">
+          </div>
+        </div>
+        <div class="card dark-card" onclick="toggle('l2')">
+          <h3>1907, PhD in Mathematics</h3>
+          <div id="l2" class="card-content light-text">In 1907 Noether earned her PHD from the University of Erlangen, graduating top of the class. She was one of the first women in Germany to achieve this, but unlike one would think the degree opened no doors. Universities would sill not hire women as professors, even if they were as distinguished as her. She spent years working without pay, substituting for her father when he was ill from time to time. She kept discovering groundbreaking mathematical concepts during this period of time, without any kind of recognition or pay.
+            <img src="phd.jpg" alt="PhD diploma" class="card-img">
+          </div>
+        </div>
+        <div class="card dark-card" onclick="toggle('l3')">
+          <h3>1915, Göttingen University</h3>
+          <div id="l3" class="card-content light-text">In 1915 the infamous mathematicians David Hilbert and Felix Klein invited Noether to join them at the University of Göttingen, which was at the time the world's greatest center of mathematics. The faculty didn't want to allow it. Professors argued that soldiers returning from war would be humiliated to learn from a woman. Hilbert famously responded: "This is a university, not a bathhouse." She was eventually allowed to lecture, but only under Hilbert's name, and remained unpaid for a few more years.
+            <img src="gottingen.jpg" alt="Göttingen University" class="card-img">
+          </div>
+        </div>
+        <div class="card dark-card" onclick="toggle('l4')">
+          <h3>1918, Her greatest theorem</h3>
+          <div id="l4" class="card-content light-text">In 1918 Noether published what is now known as Noether's theorem, a result so important that physicists and chemists still use it every day. It proved that every symmetry in nature corresponds to a conservation law. We saw this in our chemistry class. The theorem helped to unite different areas of physics and chemistry under a single idea. Despite its importance, Noether received almost no public credit at the time. The work was only praised by mathematicians but she was still ignored by the broader scientific world.
+            <img src="theorem.jpg" alt="Mathematical equations" class="card-img">
+          </div>
+        </div>
+        <div class="card dark-card" onclick="toggle('l5')">
+          <h3>1933, Forced out</h3>
+          <div id="l5" class="card-content light-text">When the Nazi regime came to power in 1933, one of their first acts was to get rid of Jewish academics in German universities. Noether was dismissed that April. She had spent nearly two decades helping to build one of the world's greatest mathematical schools, mentoring hundreds of students who would then also shape the field. However,all of it was erased overnight. She had flee to the United States, taking a position at Bryn Mawr College in Pennsylvania which was one of the few institutions willing to hire her.
+            <img src="nazi.jpg" alt="1933 Germany" class="card-img">
+          </div>
+        </div>
+        <div class="card dark-card" onclick="toggle('l6')">
+          <h3>1935, Death</h3>
+          <div id="l6" class="card-content light-text">Emmy Noether died on April 14, 1935, just two years after arriving in America. She was only 53. The reason was complications from surgery to remove an ovarian cyst. Albert Einstein wrote her obituary in the New York Times, calling her the most significant creative mathematical genius that ever appeared on Earth. She died never having received the recognition her work deserved just because of her gender. Today her name is on theorems, rings, and mathematical structures used all over the world the world every single day.
+            <img src="brynmawr.jpg" alt="Bryn Mawr College" class="card-img">
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <h2>The Science</h2>
+        <div class="card" onclick="toggle('t1')">
+          <h3>⚗ Noether's Theorem, 1918</h3>
+          <div id="t1" class="card-content">Noether's theorem is one of the most relevant in all of science. It says that every continuous symmetry of a physical system corresponds to a conservation law. It basically means that if a system looks the same over a certain period of time, energy is conserved. If it looks the same in every direction, angular momentum is conserved. This we have seen in physics. Chemists use this everywhere, it explains why reactions obey energy conservation, why certain molecular transitions can't happen, and why the laws of chemistry are the same everywhere in the universe.
+            <img src="theorem.jpg" alt="Noether's theorem" class="card-img">
+          </div>
+        </div>
+        <div class="card" onclick="toggle('t2')">
+          <h3>🔬 Molecular Symmetry</h3>
+          <div id="t2" class="card-content">Noether's work on symmetry is the foundation of how chemists classify molecules. We have seen this in last unit. Every molecule belongs to a symmetry group, and that group determines almost everything about its chemistry, how it bonds, what reactions it can be part of, and what kind of light it absorbs. Water's bent shape at 104.5° never changes, it is a direct consequence of the symmetry rules that Noether's ideas describe. Without her framework, modern chemistry would have no actual foundation.
+            <img src="water.jpg" alt="Water molecule diagram" class="card-img">
+          </div>
+        </div>
+        <div class="card" onclick="toggle('t3')">
+          <h3>📡 Spectroscopy</h3>
+          <div id="t3" class="card-content">Every time a chemist uses IR spectroscopy or NMR to identify a molecule they are applying selection rules that come from Noether's symmetry principles. These rules determine which molecular transitions are allowed and which are just can't happen when a molecule interacts with light. Without Noether's mathematical framework for symmetry, chemists would have no way to predict or even interpret spectroscopic data. Virtually every molecule ever identified in a lab has been confirmed using tools built based on her work.
+            <img src="spectroscopy.jpg" alt="NMR spectroscopy" class="card-img">
+          </div>
+        </div>
+        <div class="card" onclick="toggle('t4')">
+          <h3>⚛ Quantum Chemistry</h3>
+          <div id="t4" class="card-content">Noether mainly worked with abstract algebra, her most famous concept being her theory of rings and ideals. This gave quantum mechanics its mathematical language. When chemists calculate molecular orbitals or electron behavior, they work in mathematical structures that Noether discovered. Her proof that polynomial rings are always finitely generated explains how quantum chemical calculations on molecules always converge to a finite answer, which is why computational chemistry is even possible. Every software package used to model molecules today runs on the algebra she invented.
+            <img src="quantum.jpg" alt="Quantum orbital diagram" class="card-img">
+          </div>
+        </div>
+        <div class="card" onclick="toggle('t5')">
+          <h3>🌍 Why it matters today</h3>
+          <div id="t5" class="card-content">The reach of Noether's work extends far beyond chemistry. MRI machines work because of quantum mechanics built on her algebra. GPS satellites are based on conservation laws her theorems explain. Greenhouse gas science depends on the spectroscopic selection rules her symmetry laws provids. Quantum computing, the next form of technology, is entirely built on the mathematical concepts she developed. This all shows why she is one of the most influential scientists in history, and most people have never heard her name.
+            <img src="mri.jpg" alt="MRI machine" class="card-img">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-section">
+      <p class="quote-text">"She was the most significant creative mathematical genius thus far produced."</p>
+      <p class="quote-author">Albert Einstein, 1935</p>
+    </div>
+
+    <footer>
+      <p>Project by Marco M Pastor Sauvageot · Emmy Noether 1882,1935</p>
+      <p>"In the judgment of the most competent living mathematicians, she was the most significant creative mathematical genius thus far produced." Albert Einstein, 1935</p>
+    </footer>
+
+    <script>
+      function toggle(id) {
+        var box = document.getElementById(id);
+        if (box.style.display === "block") {
+          box.style.display = "none";
+        } else {
+          box.style.display = "block";
+        }
+      }
+
+      window.addEventListener('scroll', function() {
+        var quote = document.querySelector('.quote-section');
+        var position = quote.getBoundingClientRect().top;
+        if (position < window.innerHeight - 100) {
+          quote.classList.add('visible');
+        }
+      });
+    </script>
+
+  </body>
+</html>
