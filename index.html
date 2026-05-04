@@ -1,188 +1,247 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Emmy Noether</title>
+    <title>Noether's Legacy · M&M Sauvageot</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='black'/><text y='78' x='10' font-size='75' font-family='Georgia' fill='%2300b8b8'>M</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+      * { box-sizing: border-box; }
+
       body {
-        font-family: Georgia, serif;
-        background-color: #1a1a2e;
+        font-family: 'Inter', sans-serif;
+        background-color: #0d0d0d;
         color: #dfd3be;
         margin: 0;
         padding: 0;
       }
-      h1 {
-        font-size: 48px;
-        color: #e8dcc8;
-      }
-      header {
-        background-color: #5c4a6e;
-        color: #ffffff;
-        padding: 60px 40px;
-        text-align: center;
-      }
-      header p {
-        font-size: 18px;
-        opacity: 0.8;
-      }
-      .portrait-circle {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #e8dcc8;
-        margin: 20px auto;
-        display: block;
-      }
-      .split {
-        display: flex;
-        min-height: 80vh;
-      }
-      .left {
-        background-color: #2c2c2c;
-        color: #e8dcc8;
-        width: 50%;
-        padding: 40px;
-      }
-      .right {
-        background-color: #e8dcc8;
-        color: #2c2c2c;
-        width: 50%;
-        padding: 40px;
-      }
-      h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-      h3 {
-        font-size: 15px;
-        margin-top: 20px;
-        margin-bottom: 6px;
-        opacity: 0.7;
-      }
-      .card {
-        background-color: #ffffff;
-        border: 1px solid #2c2c2c;
-        border-radius: 8px;
-        padding: 14px 18px;
-        margin-bottom: 12px;
-        cursor: pointer;
-      }
-      .card:hover {
-        background-color: #f0e6d3;
-      }
-      .card h3 {
-        opacity: 1;
-        margin: 0;
-        font-size: 15px;
-      }
-      .card-content {
-        display: none;
-        margin-top: 10px;
-        font-size: 14px;
-        line-height: 1.7;
-        color: #2c2c2c;
-      }
-      .quote-section {
-        background-color: #0a1628;
-        color: #e8dcc8;
-        text-align: center;
-        padding: 60px 40px;
-        opacity: 0;
-        transition: opacity 1.5s ease;
-      }
-      .quote-section.visible {
-        opacity: 1;
-      }
-      .quote-text {
-        font-size: 22px;
-        font-style: italic;
-        max-width: 700px;
-        margin: 0 auto 16px;
-        line-height: 1.7;
-      }
-      .quote-author {
-        font-size: 14px;
-        opacity: 0.7;
-      }
-      footer {
-        background-color: #5c4a6e;
-        color: #e8dcc8;
-        text-align: center;
-        padding: 40px;
-        font-size: 14px;
-        line-height: 2;
-      }
-      .card-img {
-        width: 100%;
-        max-width: 300px;
-        display: block;
-        margin: 12px auto 0;
-        border-radius: 8px;
-      }
-      .dark-card {
-        background-color: #3a3a3a;
-        border: 1px solid #555;
-      }
-      .dark-card:hover {
-        background-color: #444;
-      }
-      .light-text {
-        color: #e8dcc8;
-      }
-
-      .split {
-        border-top: 6px solid #ffffff;
-        border-bottom: 6px solid #ffffff;
-      }
-
-      .quote-section {
-        border-bottom: 6px solid #ffffff;
-      }
-
-      header {
-        border-bottom: 6px solid #ffffff;
-      }
 
       .navbar {
         background-color: #000000;
-        padding: 12px 24px;
+        padding: 14px 32px;
         display: flex;
         align-items: center;
         gap: 16px;
-        border-bottom: 6px solid #ffffff;
+        border-bottom: 3px solid #00b8b8;
+        position: sticky;
+        top: 0;
+        z-index: 100;
       }
 
       .nav-logo {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: bold;
         color: #00b8b8;
-        font-family: Georgia, serif;
+        font-family: 'Playfair Display', serif;
         letter-spacing: 2px;
-      }
-
-      .nav-title {
-        font-size: 14px;
-        color: #ffffff;
-        opacity: 0.7;
-        font-family: Georgia, serif;
-        letter-spacing: 1px;
       }
 
       .nav-divider {
         color: #ffffff;
-        opacity: 0.3;
+        opacity: 0.2;
         font-size: 20px;
       }
 
+      .nav-title {
+        font-size: 13px;
+        color: #ffffff;
+        opacity: 0.5;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
       .nav-page {
-        font-size: 14px;
+        font-size: 13px;
         color: #00b8b8;
-        font-family: Georgia, serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      header {
+        background-color: #1a0a2e;
+        color: #ffffff;
+        padding: 80px 40px 60px;
+        text-align: center;
+        border-bottom: 3px solid #ffffff;
+      }
+
+      .portrait-circle {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #00b8b8;
+        margin: 0 auto 28px;
+        display: block;
+      }
+
+      h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 56px;
+        color: #ffffff;
+        margin: 0 0 12px;
+        letter-spacing: 1px;
+      }
+
+      .header-dates {
+        font-size: 13px;
+        color: #00b8b8;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .header-sub {
+        font-size: 18px;
+        color: #ffffff;
+        opacity: 0.6;
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .split {
+        display: flex;
+        min-height: 90vh;
+        border-top: 3px solid #ffffff;
+        border-bottom: 3px solid #ffffff;
+      }
+
+      .left {
+        background-color: #111111;
+        color: #e8dcc8;
+        width: 50%;
+        padding: 48px 40px;
+        border-right: 3px solid #ffffff;
+      }
+
+      .right {
+        background-color: #f5ede0;
+        color: #1a1a1a;
+        width: 50%;
+        padding: 48px 40px;
+      }
+
+      h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .right h2 {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+      }
+
+      .card {
+        background-color: #f5ede0;
+        border: none;
+        border-radius: 10px;
+        padding: 16px 20px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        background-color: #fff8f0;
+      }
+
+      .card h3 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+        color: #1a1a1a;
+        font-family: 'Inter', sans-serif;
+        opacity: 1;
+      }
+
+      .card-content {
+        display: none;
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 1.8;
+        color: #2c2c2c;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        padding-top: 12px;
+      }
+
+      .dark-card {
+        background-color: #1e1e1e;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+
+      .dark-card:hover {
+        background-color: #252525;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      }
+
+      .dark-card h3 {
+        color: #e8dcc8;
+      }
+
+      .light-text {
+        color: #c8bfb0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .card-img {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        margin: 14px auto 0;
+        border-radius: 8px;
+      }
+
+      .quote-section {
+        background-color: #0a1628;
+        color: #e8dcc8;
+        text-align: center;
+        padding: 80px 40px;
+        opacity: 0;
+        transition: opacity 1.5s ease;
+        border-bottom: 3px solid #ffffff;
+      }
+
+      .quote-section.visible {
+        opacity: 1;
+      }
+
+      .quote-text {
+        font-family: 'Playfair Display', serif;
+        font-size: 26px;
+        font-style: italic;
+        max-width: 760px;
+        margin: 0 auto 20px;
+        line-height: 1.8;
+        color: #ffffff;
+      }
+
+      .quote-author {
+        font-size: 13px;
+        color: #00b8b8;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      footer {
+        background-color: #000000;
+        color: #e8dcc8;
+        text-align: center;
+        padding: 40px;
+        font-size: 13px;
+        line-height: 2.2;
+        opacity: 0.7;
       }
     </style>
   </head>
   <body>
+
     <nav class="navbar">
       <span class="nav-logo">M</span>
       <span class="nav-divider">|</span>
@@ -192,9 +251,10 @@
     </nav>
 
     <header>
-      <h1>Emmy Noether</h1>
       <img src="emmy.jpg" alt="Emmy Noether" class="portrait-circle">
-      <p>1882, 1935 · The mathematician chemistry forgot</p>
+      <h1>Emmy Noether</h1>
+      <div class="header-dates">1882 · 1935</div>
+      <p class="header-sub">The mathematician chemistry forgot</p>
     </header>
 
     <div class="split">
@@ -226,13 +286,13 @@
         </div>
         <div class="card dark-card" onclick="toggle('l5')">
           <h3>1933, Forced out</h3>
-          <div id="l5" class="card-content light-text">When the Nazi regime came to power in 1933, one of their first acts was to get rid of Jewish academics in German universities. Noether was dismissed that April. She had spent nearly two decades helping to build one of the world's greatest mathematical schools, mentoring hundreds of students who would then also shape the field. However,all of it was erased overnight. She had flee to the United States, taking a position at Bryn Mawr College in Pennsylvania which was one of the few institutions willing to hire her.
+          <div id="l5" class="card-content light-text">When the Nazi regime came to power in 1933, one of their first acts was to get rid of Jewish academics in German universities. Noether was dismissed that April. She had spent nearly two decades helping to build one of the world's greatest mathematical schools, mentoring hundreds of students who would then also shape the field. However, all of it was erased overnight. She had flee to the United States, taking a position at Bryn Mawr College in Pennsylvania which was one of the few institutions willing to hire her.
             <img src="nazi.jpg" alt="1933 Germany" class="card-img">
           </div>
         </div>
         <div class="card dark-card" onclick="toggle('l6')">
           <h3>1935, Death</h3>
-          <div id="l6" class="card-content light-text">Emmy Noether died on April 14, 1935, just two years after arriving in America. She was only 53. The reason was complications from surgery to remove an ovarian cyst. Albert Einstein wrote her obituary in the New York Times, calling her the most significant creative mathematical genius that ever appeared on Earth. She died never having received the recognition her work deserved just because of her gender. Today her name is on theorems, rings, and mathematical structures used all over the world the world every single day.
+          <div id="l6" class="card-content light-text">Emmy Noether died on April 14, 1935, just two years after arriving in America. She was only 53. The reason was complications from surgery to remove an ovarian cyst. Albert Einstein wrote her obituary in the New York Times, calling her the most significant creative mathematical genius that ever appeared on Earth. She died never having received the recognition her work deserved just because of her gender. Today her name is on theorems, rings, and mathematical structures used all over the world every single day.
             <img src="brynmawr.jpg" alt="Bryn Mawr College" class="card-img">
           </div>
         </div>
@@ -254,7 +314,7 @@
         </div>
         <div class="card" onclick="toggle('t3')">
           <h3>📡 Spectroscopy</h3>
-          <div id="t3" class="card-content">Every time a chemist uses IR spectroscopy or NMR to identify a molecule they are applying selection rules that come from Noether's symmetry principles. These rules determine which molecular transitions are allowed and which are just can't happen when a molecule interacts with light. Without Noether's mathematical framework for symmetry, chemists would have no way to predict or even interpret spectroscopic data. Virtually every molecule ever identified in a lab has been confirmed using tools built based on her work.
+          <div id="t3" class="card-content">Every time a chemist uses IR spectroscopy or NMR to identify a molecule they are applying selection rules that come from Noether's symmetry principles. These rules determine which molecular transitions are allowed and which just can't happen when a molecule interacts with light. Without Noether's mathematical framework for symmetry, chemists would have no way to predict or even interpret spectroscopic data. Virtually every molecule ever identified in a lab has been confirmed using tools built based on her work.
             <img src="spectroscopy.jpg" alt="NMR spectroscopy" class="card-img">
           </div>
         </div>
@@ -266,7 +326,7 @@
         </div>
         <div class="card" onclick="toggle('t5')">
           <h3>🌍 Why it matters today</h3>
-          <div id="t5" class="card-content">The reach of Noether's work extends far beyond chemistry. MRI machines work because of quantum mechanics built on her algebra. GPS satellites are based on conservation laws her theorems explain. Greenhouse gas science depends on the spectroscopic selection rules her symmetry laws provids. Quantum computing, the next form of technology, is entirely built on the mathematical concepts she developed. This all shows why she is one of the most influential scientists in history, and most people have never heard her name.
+          <div id="t5" class="card-content">The reach of Noether's work extends far beyond chemistry. MRI machines work because of quantum mechanics built on her algebra. GPS satellites are based on conservation laws her theorems explain. Greenhouse gas science depends on the spectroscopic selection rules her symmetry laws provides. Quantum computing, the next form of technology, is entirely built on the mathematical concepts she developed. This all shows why she is one of the most influential scientists in history, and most people have never heard her name.
             <img src="mri.jpg" alt="MRI machine" class="card-img">
           </div>
         </div>
@@ -279,7 +339,7 @@
     </div>
 
     <footer>
-      <p>Project by Marco M Pastor Sauvageot · Emmy Noether 1882,1935</p>
+      <p>Project by Marco M Pastor Sauvageot · Emmy Noether 1882, 1935</p>
       <p>"In the judgment of the most competent living mathematicians, she was the most significant creative mathematical genius thus far produced." Albert Einstein, 1935</p>
     </footer>
 
