@@ -56,6 +56,44 @@
         text-transform: uppercase;
       }
 
+      .share-bar {
+        margin-left: auto;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .share-btn {
+        font-size: 12px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: transparent;
+        color: #ffffff;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.15s ease;
+      }
+
+      .share-btn:hover {
+        background: rgba(255,255,255,0.1);
+      }
+
+      .share-btn.whatsapp {
+        border-color: #25D366;
+        color: #25D366;
+      }
+
+      .share-btn.gmail {
+        border-color: #EA4335;
+        color: #EA4335;
+      }
+
+      .share-btn.copy {
+        border-color: #00b8b8;
+        color: #00b8b8;
+      }
+
       header {
         background-color: #1a0a2e;
         color: #ffffff;
@@ -248,6 +286,11 @@
       <span class="nav-title">M&M Sauvageot · Making the Neglected Seen</span>
       <span class="nav-divider">|</span>
       <span class="nav-page">Noether's Legacy</span>
+      <div class="share-bar">
+        <a class="share-btn whatsapp" href="https://wa.me/?text=Check%20out%20this%20page%20on%20Emmy%20Noether%20https://mmpbs13-design.github.io/noether" target="_blank">WhatsApp</a>
+        <a class="share-btn gmail" href="mailto:?subject=Emmy%20Noether%20-%20The%20Mathematician%20Chemistry%20Forgot&body=Check%20out%20this%20page%20on%20Emmy%20Noether:%20https://mmpbs13-design.github.io/noether" target="_blank">Gmail</a>
+        <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://mmpbs13-design.github.io/noether').then(()=>{this.innerText='Copied!';setTimeout(()=>this.innerText='Copy link',1500)})">Copy link</button>
+      </div>
     </nav>
 
     <header>
@@ -268,7 +311,7 @@
         </div>
         <div class="card dark-card" onclick="toggle('l2')">
           <h3>1907, PhD in Mathematics</h3>
-          <div id="l2" class="card-content light-text">In 1907 Noether earned her PHD from the University of Erlangen, graduating top of the class. She was one of the first women in Germany to achieve this, but unlike one would think the degree opened no doors. Universities would sill not hire women as professors, even if they were as distinguished as her. She spent years working without pay, substituting for her father when he was ill from time to time. She kept discovering groundbreaking mathematical concepts during this period of time, without any kind of recognition or pay.
+          <div id="l2" class="card-content light-text">In 1907 Noether earned her PHD from the University of Erlangen, graduating top of the class. She was one of the first women in Germany to achieve this, but unlike one would think the degree opened no doors. Universities would still not hire women as professors, even if they were as distinguished as her. She spent years working without pay, substituting for her father when he was ill from time to time. She kept discovering groundbreaking mathematical concepts during this period of time, without any kind of recognition or pay.
             <img src="phd.jpg" alt="PhD diploma" class="card-img">
           </div>
         </div>
@@ -286,7 +329,7 @@
         </div>
         <div class="card dark-card" onclick="toggle('l5')">
           <h3>1933, Forced out</h3>
-          <div id="l5" class="card-content light-text">When the Nazi regime came to power in 1933, one of their first acts was to get rid of Jewish academics in German universities. Noether was dismissed that April. She had spent nearly two decades helping to build one of the world's greatest mathematical schools, mentoring hundreds of students who would then also shape the field. However, all of it was erased overnight. She had flee to the United States, taking a position at Bryn Mawr College in Pennsylvania which was one of the few institutions willing to hire her.
+          <div id="l5" class="card-content light-text">When the Nazi regime came to power in 1933, one of their first acts was to get rid of Jewish academics in German universities. Noether was dismissed that April. She had spent nearly two decades helping to build one of the world's greatest mathematical schools, mentoring hundreds of students who would then also shape the field. However, all of it was erased overnight. She had to flee to the United States, taking a position at Bryn Mawr College in Pennsylvania which was one of the few institutions willing to hire her.
             <img src="nazi.jpg" alt="1933 Germany" class="card-img">
           </div>
         </div>
